@@ -52,5 +52,5 @@
   "serve": "vue-cli-service serve",
   "build": "vue-cli-service build",
   "postinstall": "npm run build",
-"start": "node server.js"
+  "start": "node server.js"
 }
