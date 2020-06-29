@@ -2,7 +2,7 @@
   <div>
     <b-jumbotron color="light">
       <template v-slot:lead v-if="questionToDisplay.question">
-        <p>{{ questionToDisplay.question }}</p></template
+        <p>{{ question }}</p></template
       >
 
       <hr class="my-4" />
@@ -44,9 +44,15 @@ export default {
   },
   computed: {
     answers: function() {
+      var he = require('he')
       let answers = [...this.questionToDisplay.incorrect_answers];
       answers.push(this.questionToDisplay.correct_answer);
-      return answers;
+      var decodedAnswers = answers.map(ans => he.decode(ans));
+      return decodedAnswers;
+    },
+    question: function(){
+      var he = require("he");
+      return he.decode(this.questionToDisplay.question)
     }
   },
   watch: {
