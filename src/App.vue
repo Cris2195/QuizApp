@@ -13,7 +13,7 @@
     <div v-else>
       <b-container class="bv-example-row">
         <b-row>
-          <b-col>
+          <b-col sm="6" offset="3">
             <Header :correct="qtaCorrect" :total="total" />
           </b-col>
         </b-row>
