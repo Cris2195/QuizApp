@@ -1,7 +1,6 @@
 <template>
   <div id="app">
     <div class="progress" v-if="!loaded">
-      >
       <div
         class="progress-bar progress-bar-striped progress-bar-animated"
         role="progressbar"
@@ -12,44 +11,56 @@
       ></div>
     </div>
     <div v-else>
-      <Header :correct="qtaCorrect" :total="total" />
       <b-container class="bv-example-row">
         <b-row>
-          <b-col sm="6" offset="3" v-if="questions.length"
-            ><QuestionBox
-              v-if="total !== 10"
-              :questionToDisplay="questions[index]"
-              :next="nextQuestion"
-              :increment="increment"
-            />
-            <div v-else>
-              <div>
-                <b-jumbotron
-                  bg-variant="solid"
-                  text-variant="white"
-                  border-variant="dark"
-                  class="animate__animated animate__bounce"
-                >
-                  <template v-slot:header>QuizApp Terminato</template>
-
-                  <template v-slot:lead>
-                    <p class="display-3">Score : {{ qtaCorrect }}</p></template
-                  >
-
-                  <hr class="my-4" />
-
-                  <div v-if="qtaCorrect > 5">
-                    <p>Eheh test passato per un pelo!</p>
-                  </div>
-                  <div v-else-if="qtaCorrect > 8">
-                    <p>Wow sei andato benissimo</p>
-                  </div>
+          <b-col>
+            <Header :correct="qtaCorrect" :total="total" />
+          </b-col>
+        </b-row>
+        <b-row>
+          <b-col>
+            <b-container class="bv-example-row">
+              <b-row>
+                <b-col sm="6" offset="3" v-if="questions.length"
+                  ><QuestionBox
+                    v-if="total !== 10"
+                    :questionToDisplay="questions[index]"
+                    :next="nextQuestion"
+                    :increment="increment"
+                  />
                   <div v-else>
-                    <p>Quiz andato malissimo!!!</p>
+                    <div>
+                      <b-jumbotron
+                        bg-variant="solid"
+                        text-variant="white"
+                        border-variant="dark"
+                        class="animate__animated animate__bounce"
+                      >
+                        <template v-slot:header>QuizApp Terminato</template>
+
+                        <template v-slot:lead>
+                          <p class="display-3">
+                            Score : {{ qtaCorrect }}
+                          </p></template
+                        >
+
+                        <hr class="my-4" />
+
+                        <div v-if="qtaCorrect > 5">
+                          <p>Eheh test passato per un pelo!</p>
+                        </div>
+                        <div v-else-if="qtaCorrect > 8">
+                          <p>Wow sei andato benissimo</p>
+                        </div>
+                        <div v-else>
+                          <p>Quiz andato malissimo!!!</p>
+                        </div>
+                      </b-jumbotron>
+                    </div>
                   </div>
-                </b-jumbotron>
-              </div>
-            </div>
+                </b-col>
+              </b-row>
+            </b-container>
           </b-col>
         </b-row>
       </b-container>
