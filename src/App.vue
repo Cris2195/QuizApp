@@ -1,17 +1,20 @@
 <template>
   <div id="app">
-    <div class="progress" v-if="!loaded">
-      <div
-        class="progress-bar progress-bar-striped progress-bar-animated"
-        role="progressbar"
-        aria-valuenow="100"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 100%"
-      ></div>
+    <vue-particles color="#dedede"></vue-particles>
+    <div class="centered-text" v-if="!loaded">
+      <div class="progress">
+        <div
+          class="progress-bar progress-bar-striped progress-bar-animated"
+          role="progressbar"
+          aria-valuenow="100"
+          aria-valuemin="0"
+          aria-valuemax="100"
+          style="width: 100%"
+        ></div>
+      </div>
     </div>
-    <div v-else>
-      <b-container class="bv-example-row">
+    <div v-else class="centered-text">
+      <b-container class="bv-example-row" fluid>
         <b-row>
           <b-col sm="6" offset="3">
             <Header :correct="qtaCorrect" :total="total" />
@@ -71,6 +74,7 @@
 <script>
 import QuestionBox from "./components/QuestionBox.vue";
 import Header from "./components/Header.vue";
+const MAX_LENGTH = 9;
 export default {
   components: {
     QuestionBox,
@@ -91,12 +95,16 @@ export default {
   },
   methods: {
     nextQuestion: function() {
+      if (this.index === MAX_LENGTH) {
+        this.index = 0;
+      }
       this.index++;
     },
     increment: function(isCorrect) {
       if (isCorrect) {
         this.qtaCorrect++;
       }
+
       this.total++;
     },
     isFinished: function() {
@@ -127,5 +135,15 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+#particles-js {
+  height: 100vh;
+}
+.centered-text {
+  color: #ffffff;
+  position: absolute;
+  text-align: center;
+  top: 20%;
+  width: 100%;
 }
 </style>

@@ -44,15 +44,15 @@ export default {
   },
   computed: {
     answers: function() {
-      var he = require('he')
+      var he = require("he");
       let answers = [...this.questionToDisplay.incorrect_answers];
       answers.push(this.questionToDisplay.correct_answer);
       var decodedAnswers = answers.map(ans => he.decode(ans));
       return decodedAnswers;
     },
-    question: function(){
+    question: function() {
       var he = require("he");
-      return he.decode(this.questionToDisplay.question)
+      return he.decode(this.questionToDisplay.question);
     }
   },
   watch: {
