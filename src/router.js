@@ -11,7 +11,7 @@ export default new Router({
       component: Menu
     },
     {
-      path: "/quiz",
+      path: "/quiz/:id",
       name: "quiz",
       component: Quiz
     }

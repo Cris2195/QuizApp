@@ -109,9 +109,12 @@ export default {
     }
   },
   mounted: function() {
-    fetch("https://opentdb.com/api.php?amount=10&category=18", {
-      method: "GET"
-    })
+    fetch(
+      "https://opentdb.com/api.php?amount=10&category=" + this.$route.params.id,
+      {
+        method: "GET"
+      }
+    )
       .then(response => {
         return response.json();
       })
