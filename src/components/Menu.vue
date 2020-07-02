@@ -18,7 +18,7 @@
             class="text-center"
             @click="goToQuiz('TECH')"
           >
-            <b-card-text>Prove yourself with Tech questions</b-card-text>
+            <b-card-text>Prove yourself with Tech's questions</b-card-text>
           </b-card>
         </b-col>
         <b-col class="animate__animated animate__fadeInDown"
@@ -29,7 +29,7 @@
             class="text-center"
             @click="goToQuiz('SCIENCE')"
           >
-            <b-card-text>Prove yourself with Science questions</b-card-text>
+            <b-card-text>Prove yourself with Science's questions</b-card-text>
           </b-card></b-col
         >
         <b-col class="animate__animated animate__fadeInDown"
@@ -40,7 +40,9 @@
             class="text-center"
             @click="goToQuiz('GENERAL')"
           >
-            <b-card-text>Prove yourself with Economy questions</b-card-text>
+            <b-card-text
+              >Prove yourself with General knowledge's questions</b-card-text
+            >
           </b-card></b-col
         >
       </b-row>
@@ -53,7 +55,7 @@
             class="text-center"
             @click="goToQuiz('GAMES')"
           >
-            <b-card-text>Prove yourself with Games questions</b-card-text>
+            <b-card-text>Prove yourself with Games's questions</b-card-text>
           </b-card>
         </b-col>
         <b-col class="animate__animated animate__fadeInDown"
@@ -64,7 +66,7 @@
             class="text-center"
             @click="goToQuiz('FILMS')"
           >
-            <b-card-text>Prove yourself with Films questions</b-card-text>
+            <b-card-text>Prove yourself with Film's questions</b-card-text>
           </b-card></b-col
         >
         <b-col class="animate__animated animate__fadeInDown"
@@ -75,7 +77,7 @@
             class="text-center"
             @click="goToQuiz('HISTORY')"
           >
-            <b-card-text>Prove yourself with History questions</b-card-text>
+            <b-card-text>Prove yourself with History's questions</b-card-text>
           </b-card></b-col
         >
       </b-row>
