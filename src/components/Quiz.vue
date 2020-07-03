@@ -1,17 +1,14 @@
 <template>
   <div class="centered-text" v-if="!loaded">
-    <div class="progress">
-      <div
-        class="progress-bar progress-bar-striped progress-bar-animated"
-        role="progressbar"
-        aria-valuenow="100"
-        aria-valuemin="0"
-        aria-valuemax="100"
-        style="width: 100%"
-      ></div>
+    <div class="d-flex justify-content-center mb-3">
+      <b-spinner
+        style="width: 10rem; height: 10rem;"
+        label="L"
+        variant="secondary"
+      ></b-spinner>
     </div>
   </div>
-  <div v-else class="centered-text">
+  <div v-else>
     <b-container class="bv-example-row" fluid>
       <b-row>
         <b-col sm="6" offset="3">
@@ -21,7 +18,7 @@
       <b-row>
         <b-col>
           <b-container class="bv-example-row">
-            <b-row>
+            <b-row class="mt-3">
               <b-col sm="6" offset="3" v-if="questions.length"
                 ><QuestionBox
                   v-if="total !== 10"
@@ -141,9 +138,11 @@ export default {
 }
 .centered-text {
   color: #ffffff;
-  position: absolute;
+  position: relative;
   text-align: center;
-  top: 20%;
+  top: 10%;
   width: 100%;
+}
+#b-spinner {
 }
 </style>

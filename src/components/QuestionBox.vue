@@ -1,6 +1,6 @@
 <template>
   <div>
-    <b-jumbotron color="light">
+    <b-jumbotron>
       <template v-slot:lead v-if="questionToDisplay.question">
         <p>{{ question }}</p></template
       >

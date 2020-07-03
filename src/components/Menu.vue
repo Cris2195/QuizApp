@@ -16,6 +16,9 @@
             text-variant="white"
             header="Tech"
             class="text-center"
+            :class="[hover ? 'change' : '']"
+            @mouseover="hover = true"
+            @mouseleave="hover = false"
             @click="goToQuiz('TECH')"
           >
             <b-card-text>Prove yourself with Tech's questions</b-card-text>
@@ -27,6 +30,9 @@
             text-variant="white"
             header="Science"
             class="text-center"
+            :class="[sci ? 'change' : '']"
+            @mouseover="sci = true"
+            @mouseleave="sci = false"
             @click="goToQuiz('SCIENCE')"
           >
             <b-card-text>Prove yourself with Science's questions</b-card-text>
@@ -38,6 +44,9 @@
             text-variant="black"
             header="General"
             class="text-center"
+            :class="[gen ? 'change' : '']"
+            @mouseover="gen = true"
+            @mouseleave="gen = false"
             @click="goToQuiz('GENERAL')"
           >
             <b-card-text
@@ -53,6 +62,9 @@
             text-variant="white"
             header="VideoGames"
             class="text-center"
+            :class="[gam ? 'change' : '']"
+            @mouseover="gam = true"
+            @mouseleave="gam = false"
             @click="goToQuiz('GAMES')"
           >
             <b-card-text>Prove yourself with Games's questions</b-card-text>
@@ -65,6 +77,9 @@
             header="Films"
             class="text-center"
             @click="goToQuiz('FILMS')"
+            :class="[fil ? 'change' : '']"
+            @mouseover="fil = true"
+            @mouseleave="fil = false"
           >
             <b-card-text>Prove yourself with Film's questions</b-card-text>
           </b-card></b-col
@@ -75,6 +90,9 @@
             text-variant="black"
             header="History"
             class="text-center"
+            :class="[sto ? 'change' : '']"
+            @mouseover="sto = true"
+            @mouseleave="sto = false"
             @click="goToQuiz('HISTORY')"
           >
             <b-card-text>Prove yourself with History's questions</b-card-text>
@@ -89,7 +107,15 @@
 import { CategoryEnum, IdEnum } from "../categoryEnum.js";
 export default {
   data: function() {
-    return { hide: false };
+    return {
+      hide: false,
+      hover: false,
+      sci: false,
+      gen: false,
+      sto: false,
+      fil: false,
+      gam: false
+    };
   },
   methods: {
     goToQuiz: function(cat) {
@@ -130,5 +156,9 @@ export default {
 }
 .animate__animated.animate__fadeInDown {
   --animate-duration: 2s;
+}
+.change {
+  cursor: pointer;
+  background-color: black;
 }
 </style>
