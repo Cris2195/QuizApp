@@ -4,7 +4,7 @@
       <b-spinner
         style="width: 10rem; height: 10rem;"
         label="L"
-        variant="secondary"
+        variant="warning"
       ></b-spinner>
     </div>
   </div>
