@@ -38,7 +38,7 @@
                       border-variant="dark"
                       class="animate__animated animate__bounce"
                     >
-                      <template v-slot:header>QuizApp Terminato</template>
+                      <template v-slot:header>QuizApp Ended</template>
 
                       <template v-slot:lead>
                         <p class="display-3">
