@@ -15,7 +15,15 @@
           v-for="(ans, index) in answers"
           :key="index"
           @click="selectIndex(index)"
-          :class="[index === selectedIndex ? 'selected' : '']"
+          :class="[
+            index === selectedIndex && !answered
+              ? 'selected'
+              : index === selectedIndex && isCorrect && answered
+              ? 'correct'
+              : index === selectedIndex && !isCorrect && answered
+              ? 'wrong'
+              : ''
+          ]"
         >
           <p>{{ ans }}</p>
         </b-list-group-item>
@@ -43,7 +51,12 @@ export default {
     increment: Function
   },
   data: function() {
-    return { answer: [], selectedIndex: null, answered: false };
+    return {
+      answer: [],
+      selectedIndex: null,
+      answered: false,
+      isCorrect: false
+    };
   },
   computed: {
     answers: function() {
@@ -62,7 +75,9 @@ export default {
     questionToDisplay: {
       immediate: true,
       handler() {
-        (this.answered = false), (this.selectedIndex = null);
+        (this.answered = false),
+          (this.selectedIndex = null),
+          (this.isCorrect = false);
         this.shuffleArray();
       }
     }
@@ -76,30 +91,34 @@ export default {
       funcShuffle(this.answers);
     },
     evaluateAnswer: function() {
-      let isCorrect = false;
       if (
         this.answers[this.selectedIndex] ===
         this.questionToDisplay.correct_answer
       ) {
-        this.$bvToast.toast(`Bravo, risposta Giusta`, {
-          title: "Risultato",
+        this.$bvToast.toast(`Good, right answer`, {
+          title: "Outcome",
           autoHideDelay: 1500,
           variant: "success",
           solid: true
         });
-        isCorrect = true;
-        this.next();
+        this.isCorrect = true;
+        this.delayNextQuestion();
       } else {
-        this.$bvToast.toast(`Risposta Sbagliata`, {
-          title: "Risultato?",
+        this.$bvToast.toast(`So bad, wrong answer`, {
+          title: "Outcome",
           autoHideDelay: 1500,
           variant: "danger",
           solid: true
         });
-        this.next();
+        this.delayNextQuestion();
       }
       this.answered = true;
-      this.increment(isCorrect);
+      this.increment(this.isCorrect);
+    },
+    delayNextQuestion: function() {
+      setTimeout(() => {
+        this.next();
+      }, 1000);
     }
   }
 };
@@ -120,7 +139,7 @@ export default {
 }
 
 .wrong {
-  background-color: red;
+  background-color:#D33682;;
 }
 
 p {

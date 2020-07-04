@@ -10,7 +10,7 @@
         >QuizApp</b-navbar-brand
       >
       <b-tooltip target="target-tooltip" triggers="hover">
-        Torna alla Home!
+        Go back to Home!
       </b-tooltip>
 
       <!-- Right aligned nav items -->
@@ -20,14 +20,14 @@
         >
 
         <b-nav-item active v-if="total !== 10"
-          >Domanda n {{ total }}</b-nav-item
+          >Question n {{ total }}</b-nav-item
         >
 
         <b-nav-item v-if="total !== 10" active>
           Score : {{ correct }} /{{ totalQuestions }}
         </b-nav-item>
         <b-nav-item v-if="total === 10" @click="goHome" active>
-          Torna alla home
+          Go back to home!
         </b-nav-item>
       </b-navbar-nav>
     </b-navbar>

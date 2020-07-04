@@ -48,15 +48,18 @@
 
                       <hr class="my-4" />
 
-                      <div v-if="qtaCorrect > 5">
-                        <p>Eheh test passato per un pelo!</p>
+                      <div v-if="qtaCorrect > 5 && qtaCorrect <8">
+                        <p>Uhmm! you could have done better</p>
                       </div>
-                      <div v-else-if="qtaCorrect > 8">
-                        <p>Wow sei andato benissimo</p>
+                      <div v-else-if="qtaCorrect >= 8">
+                        <p>Woow! You went great</p>
+                      </div>
+                      <div v-else-if="qtaCorrect <= 5 && qtaCorrect >=4">
+                        <p>So bad, maybe it's not your kind of game</p>
                       </div>
                       <div v-else>
-                        <p>Quiz andato malissimo!!!</p>
-                      </div>
+                        <p>Bho! Why did you even play?</p>
+                        </div>
                     </b-jumbotron>
                   </div>
                 </div>
@@ -148,7 +151,5 @@ export default {
   text-align: center;
   top: 10%;
   width: 100%;
-}
-#b-spinner {
 }
 </style>
