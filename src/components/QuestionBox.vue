@@ -22,12 +22,15 @@
       </b-list-group>
 
       <b-button
+        class="mt-3 mr-3"
         variant="primary"
         @click="evaluateAnswer()"
         :disabled="selectedIndex === null || answered"
         >Confirm</b-button
       >
-      <b-button variant="success" @click="next">Next Question </b-button>
+      <b-button class="mt-3 mr-3" variant="success" @click="next"
+        >Next Question
+      </b-button>
     </b-jumbotron>
   </div>
 </template>
