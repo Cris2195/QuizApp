@@ -6,6 +6,10 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
         <b-nav-item active v-if="total !== 10"
+          ><strong>{{ category }}</strong></b-nav-item
+        >
+
+        <b-nav-item active v-if="total !== 10"
           >Domanda n {{ total }}</b-nav-item
         >
 
@@ -24,7 +28,8 @@
 export default {
   props: {
     correct: Number,
-    total: Number
+    total: Number,
+    category: String
   },
   data: function() {
     return { totalQuestions: 10 };
@@ -40,5 +45,8 @@ export default {
 .big-btn {
   width: 90px;
   height: 40px;
+}
+.navbar-item{
+  color:  #fd7e14;
 }
 </style>

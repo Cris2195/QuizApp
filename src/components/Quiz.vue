@@ -12,7 +12,11 @@
     <b-container class="bv-example-row" fluid>
       <b-row>
         <b-col sm="6" offset="3">
-          <Header :correct="qtaCorrect" :total="total" />
+          <Header
+            :correct="qtaCorrect"
+            :total="total"
+            :category="categoryChosen"
+          />
         </b-col>
       </b-row>
       <b-row>
@@ -84,7 +88,8 @@ export default {
       qtaCorrect: 0,
       loaded: false,
       valueLoading: 0,
-      finished: false
+      finished: false,
+      categoryChosen: String
     };
   },
   methods: {
@@ -119,6 +124,7 @@ export default {
         this.questions = data.results;
         this.currentQuestion = this.questions[this.index];
         this.loaded = true;
+        this.categoryChosen = this.currentQuestion.category;
       });
   }
 };
