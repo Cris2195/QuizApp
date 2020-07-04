@@ -1,7 +1,17 @@
 <template>
   <div class="up">
     <b-navbar type="dark" variant="secondary">
-      <b-navbar-brand>QuizApp</b-navbar-brand>
+      <b-navbar-brand
+        id="target-tooltip"
+        @click="goHome"
+        :class="[onQuizz ? 'onQuizApp' : '']"
+        @mouseover="onQuizz = true"
+        @mouseleave="onQuizz = false"
+        >QuizApp</b-navbar-brand
+      >
+      <b-tooltip target="target-tooltip" triggers="hover">
+        Torna alla Home!
+      </b-tooltip>
 
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
@@ -32,7 +42,7 @@ export default {
     category: String
   },
   data: function() {
-    return { totalQuestions: 10 };
+    return { totalQuestions: 10, onQuizz: false };
   },
   methods: {
     goHome: function() {
@@ -46,7 +56,10 @@ export default {
   width: 90px;
   height: 40px;
 }
-.navbar-item{
-  color:  #fd7e14;
+.navbar-item {
+  color: #fd7e14;
+}
+.onQuizApp {
+  cursor: pointer;
 }
 </style>
